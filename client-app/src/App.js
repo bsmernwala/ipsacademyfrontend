@@ -55,7 +55,7 @@ function App() {
 
       
       <div className="hero-section">        
-        <img src={mainpic}  alt="mainpic" width={1100} height={250} style={{borderRadius:5}}/>
+        <img src={mainpic}  alt="mainpic" width={1140} height={250} style={{borderRadius:15}}/>
       </div>
      
       
