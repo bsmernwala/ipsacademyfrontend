@@ -1,0 +1,86 @@
+.product-management{
+
+    padding:20px;
+
+}
+
+.product-management table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.product-management th,
+.product-management td{
+
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+
+}
+
+.product-management th{
+
+    background:#1b4f72;
+    color:white;
+
+}
+
+.product-management img{
+
+    border-radius:8px;
+
+}
+
+.activeStatus{
+
+    color:green;
+    font-weight:bold;
+
+}
+
+.inactiveStatus{
+
+    color:red;
+    font-weight:bold;
+
+}
+
+.activateBtn{
+
+    background:green;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    cursor:pointer;
+    border-radius:5px;
+
+}
+
+.deactivateBtn{
+
+    background:red;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    cursor:pointer;
+    border-radius:5px;
+
+}
+
+.activateBtn:hover{
+
+    opacity:.9;
+
+}
+
+.deactivateBtn:hover{
+
+    opacity:.9;
+
+}
+table tr:hover {
+  background-color: #467ddd;
+  cursor: pointer;
+}

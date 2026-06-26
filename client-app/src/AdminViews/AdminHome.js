@@ -6,6 +6,7 @@ import CityMgt from "./CityMgt";
 import ProductCatgMgt from "./ProductCatgMgt";
 import CustomerMgt from "./CustomerMgt";
 import VendorMgt from "./VendorMgt";
+import ProductMgt from "./ProductMgt";
 
 function AdminHome({ admin, onLogout }) {
   const [activePage, setActivePage] = useState("");
@@ -22,6 +23,8 @@ function AdminHome({ admin, onLogout }) {
         return <CustomerMgt />;
       case "vendor":
         return <VendorMgt />;
+      case "product":
+        return <ProductMgt />;
         
       default:
         return (
@@ -88,6 +91,12 @@ function AdminHome({ admin, onLogout }) {
         >
           Vendor Management
       </button>
+      <button
+          className={activePage === "product" ? "active" : ""}
+          onClick={() => setActivePage("product")}
+        >
+           Product Management
+        </button>
         <button className="logout-btn" onClick={onLogout}>
           Logout
         </button>

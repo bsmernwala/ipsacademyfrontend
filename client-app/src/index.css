@@ -223,7 +223,7 @@ table tr {
 }
 
 table tr:hover {
-  background-color: #e8f0fe;
+  background-color: #467ddd;
   cursor: pointer;
 }
 img.product-image {
