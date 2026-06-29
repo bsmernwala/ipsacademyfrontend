@@ -79,6 +79,7 @@ import ProductListforMainPage from "./ProductViews/ProductListforMainPage";
 
 import "./App.css";
 import mainpic from "./mainpic.jpg";
+import ImageSlider from "./ImageSlider";
 
 function App() {
   const [page, setPage] = useState("");
@@ -201,13 +202,17 @@ function App() {
       </nav>
 
       <div className="hero-section">
-        <img
+        {/* <img
           src={mainpic}
           alt="mainpic"
           width={1140}
           height={250}
           style={{ borderRadius: 15 }}
-        />
+        /> */}
+        
+          <ImageSlider  />
+        
+        
       </div>
 
       <div className="product-section">
