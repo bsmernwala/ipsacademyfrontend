@@ -225,32 +225,107 @@ const handleLogout = () => {
             ? item.ppicname
             : `https://res.cloudinary.com/<your-cloud-name>/image/upload/${item.ppicname}`;
 
-          return (
-            <div className="product-card dark-card" key={item.pid}>
-              <img className="product-image" src={imageUrl} alt={item.pname} />
-              <h4>{item.pname}</h4>
-              <p>
-                ₹{item.oprice}{" "}
-                <span className="strike">₹{item.pprice}</span>
-              </p>
-              <p>{cname}</p>
+          // return (
+          //   <div className="product-card dark-card" key={item.pid}>
+          //     <img className="product-image" src={imageUrl} alt={item.pname} />
+          //     <h4>{item.pname}</h4>
+          //     <p>
+          //       ₹{item.oprice}{" "}
+          //       <span className="strike">₹{item.pprice}</span>
+          //     </p>
+          //     <p>{cname}</p>
 
-              {qty > 0 ? (
-                <div className="quantity-controls">
-                  <button onClick={() => decreaseQty(item.pid)}>-</button>
-                  <span>{qty}</span>
-                  <button onClick={() => increaseQty(item.pid)}>+</button>
-                </div>
-              ) : (
-                <button
-                  className="buy"
-                  onClick={() => handleBuyButton(item.pid)}
-                >
-                  🛒 Buy
-                </button>
-              )}
-            </div>
-          );
+          //     {qty > 0 ? (
+          //       <div className="quantity-controls">
+          //         <button onClick={() => decreaseQty(item.pid)}>-</button>
+          //         <span>{qty}</span>
+          //         <button onClick={() => increaseQty(item.pid)}>+</button>
+          //       </div>
+          //     ) : (
+          //       <button
+          //         className="buy"
+          //         onClick={() => handleBuyButton(item.pid)}
+          //       >
+          //         🛒 Buy
+          //       </button>
+          //     )}
+          //   </div>
+          // );
+          const discount =
+  item.pprice > item.oprice
+    ? Math.round(((item.pprice - item.oprice) / item.pprice) * 100)
+    : 0;
+
+return (
+  <div className="product-card" key={item.pid}>
+    {/* Discount Badge */}
+    {discount > 0 && (
+      <span className="discount-badge">
+        {discount}% OFF
+      </span>
+    )}
+
+    {/* Product Image */}
+    <div className="image-container">
+      <img
+        className="product-image"
+        src={imageUrl}
+        alt={item.pname}
+        loading="lazy"
+      />
+    </div>
+
+    {/* Product Details */}
+    <div className="product-details">
+      <h3 className="product-name">{item.pname}</h3>
+
+      <p className="product-category">{cname}</p>
+
+      <div className="price-section">
+        <span className="offer-price">₹{item.oprice}</span>
+
+        {item.pprice > item.oprice && (
+          <>
+            <span className="original-price">₹{item.pprice}</span>
+            <span className="save-price">
+              Save ₹{item.pprice - item.oprice}
+            </span>
+          </>
+        )}
+      </div>
+
+      <div className="rating">
+        ⭐⭐⭐⭐⭐
+        <span>(4.8)</span>
+      </div>
+
+      <p className="delivery">
+        🚚 Free Delivery
+      </p>
+
+      {qty > 0 ? (
+        <div className="quantity-controls">
+          <button onClick={() => decreaseQty(item.pid)}>
+            −
+          </button>
+
+          <span>{qty}</span>
+
+          <button onClick={() => increaseQty(item.pid)}>
+            +
+          </button>
+        </div>
+      ) : (
+        <button
+          className="buy"
+          onClick={() => handleBuyButton(item.pid)}
+        >
+          🛒 Add to Cart
+        </button>
+      )}
+    </div>
+  </div>
+);
         })}
       </div>
     </>
