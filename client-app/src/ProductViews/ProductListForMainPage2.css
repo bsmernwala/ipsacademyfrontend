@@ -1,0 +1,1666 @@
+/*==================================================
+            MYNTRA STYLE CSS - PART 1
+        HEADER + GRID + CARD + IMAGE
+==================================================*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,"Segoe UI",sans-serif;
+}
+
+body{
+    background:#f5f5f6;
+    color:#282c3f;
+}
+
+/*==========================
+        HEADER
+==========================*/
+
+.eshop-header{
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+
+    background:#ffffff;
+
+    padding:15px 40px;
+
+    box-shadow:0 2px 12px rgba(40,44,63,.08);
+
+}
+
+/*==========================
+      LEFT USER
+==========================*/
+
+.eshop-user{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.user-avatar{
+
+    width:46px;
+    height:46px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #ff3f6c;
+
+    transition:.3s;
+}
+
+.user-avatar:hover{
+
+    transform:scale(1.08);
+
+}
+
+.username{
+
+    font-size:15px;
+
+    font-weight:700;
+
+    color:#282c3f;
+
+}
+
+.logout-btn{
+
+    border:none;
+
+    outline:none;
+
+    background:#ff3f6c;
+
+    color:#fff;
+
+    padding:9px 18px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.35s;
+}
+
+.logout-btn:hover{
+
+    background:#e91e63;
+
+}
+
+/*==========================
+      TITLE
+==========================*/
+
+.eshop-title{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#ff3f6c;
+
+    letter-spacing:1px;
+
+}
+
+/*==========================
+      SEARCH
+==========================*/
+
+.eshop-search{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.select{
+
+    min-width:240px;
+
+    padding:12px 15px;
+
+    border:1px solid #d4d5d9;
+
+    border-radius:6px;
+
+    background:white;
+
+    font-size:14px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.select:focus{
+
+    border-color:#ff3f6c;
+
+    box-shadow:0 0 0 3px rgba(255,63,108,.12);
+
+}
+
+.cart{
+
+    position:relative;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+}
+
+.cart::after{
+
+    content:attr(data-count);
+
+    position:absolute;
+
+    top:-8px;
+
+    right:-12px;
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    background:#ff3f6c;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.checkout-btn{
+
+    border:none;
+
+    padding:12px 22px;
+
+    background:#ff3f6c;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.checkout-btn:hover{
+
+    background:#e91e63;
+
+}
+
+/*==========================
+      PRODUCTS GRID
+==========================*/
+
+.product-list-wide{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+
+    gap:28px;
+
+    padding:35px;
+
+}
+
+/*==========================
+      PRODUCT CARD
+==========================*/
+
+.product-card{
+
+    background:#fff;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    transition:.35s;
+
+    cursor:pointer;
+
+    box-shadow:0 1px 6px rgba(40,44,63,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:
+        0 10px 30px rgba(40,44,63,.15);
+
+}
+
+/*==========================
+    DISCOUNT BADGE
+==========================*/
+
+.discount-badge{
+
+    position:absolute;
+
+    top:14px;
+
+    left:14px;
+
+    z-index:5;
+
+    background:#ff3f6c;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+}
+
+/*==========================
+      IMAGE AREA
+==========================*/
+
+.image-container{
+
+    width:100%;
+
+    height:360px;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+/* subtle hover background */
+
+.image-container::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.02)
+    );
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.product-card:hover .image-container::after{
+
+    opacity:1;
+
+}
+
+/*==========================
+      PRODUCT IMAGE
+==========================*/
+
+.product-image{
+
+    width:92%;
+
+    height:92%;
+
+    object-fit:contain;
+
+    transition:.45s ease;
+
+}
+
+.product-card:hover .product-image{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+     IMAGE SHADOW
+==========================*/
+
+.product-image{
+
+    filter:drop-shadow(
+        0 8px 15px rgba(0,0,0,.08)
+    );
+
+}
+
+/*==========================
+     IMAGE LOADING EFFECT
+==========================*/
+
+.image-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        110deg,
+        transparent 20%,
+        rgba(255,255,255,.6) 45%,
+        transparent 70%
+    );
+
+    transform:translateX(-100%);
+
+}
+
+.product-card:hover .image-container::before{
+
+    animation:shine 1.2s;
+
+}
+
+@keyframes shine{
+
+    100%{
+
+        transform:translateX(150%);
+
+    }
+
+}
+/*==================================================
+        MYNTRA STYLE CSS - PART 2
+      PRODUCT DETAILS + PRICE + RATING
+==================================================*/
+
+/*==========================
+      PRODUCT DETAILS
+==========================*/
+
+.product-details{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    padding:16px;
+
+    background:#fff;
+
+}
+
+/*==========================
+      BRAND NAME
+(Uses your product-category)
+==========================*/
+
+.product-category{
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#535766;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+
+    margin-bottom:8px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+/*==========================
+      PRODUCT NAME
+==========================*/
+
+.product-name{
+
+    font-size:16px;
+
+    font-weight:500;
+
+    color:#282c3f;
+
+    line-height:1.45;
+
+    margin-bottom:14px;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:2;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+
+    min-height:46px;
+
+    transition:.3s;
+
+}
+
+.product-card:hover .product-name{
+
+    color:#ff3f6c;
+
+}
+
+/*==========================
+      RATING
+==========================*/
+
+.rating{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    width:fit-content;
+
+    padding:5px 10px;
+
+    border-radius:20px;
+
+    background:#03a685;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    box-shadow:0 4px 10px rgba(3,166,133,.20);
+
+}
+
+.rating span{
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+/*==========================
+      PRICE SECTION
+==========================*/
+
+.price-section{
+
+    display:flex;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+}
+
+/* Selling Price */
+
+.offer-price{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    color:#282c3f;
+
+}
+
+/* Original Price */
+
+.original-price{
+
+    font-size:15px;
+
+    color:#94969f;
+
+    text-decoration:line-through;
+
+}
+
+/* Discount */
+
+.save-price{
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#ff905a;
+
+}
+
+/*==========================
+      DELIVERY
+==========================*/
+
+.delivery{
+
+    margin-top:8px;
+
+    font-size:13px;
+
+    color:#03a685;
+
+    font-weight:600;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+}
+
+/*==========================
+      DIVIDER
+==========================*/
+
+.product-details::before{
+
+    content:"";
+
+    display:block;
+
+    width:100%;
+
+    height:1px;
+
+    background:#f2f2f2;
+
+    margin-bottom:14px;
+
+}
+
+/*==========================
+      HOVER EFFECT
+==========================*/
+
+.product-card:hover .product-details{
+
+    background:#fff;
+
+}
+
+.product-card:hover .offer-price{
+
+    color:#ff3f6c;
+
+}
+
+/*==========================
+      OPTIONAL TAG
+(Add manually if needed)
+==========================*/
+
+.best-seller{
+
+    display:inline-block;
+
+    width:fit-content;
+
+    margin-bottom:10px;
+
+    padding:5px 10px;
+
+    background:#ffebe6;
+
+    color:#ff5722;
+
+    border-radius:4px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+}
+
+/*==========================
+      STOCK TAG
+(Optional)
+==========================*/
+
+.stock-tag{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:10px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#03a685;
+
+}
+
+/*==========================
+      CARD HOVER
+==========================*/
+
+.product-card:hover{
+
+    transition:all .35s ease;
+
+}
+
+.product-card:hover .product-category{
+
+    color:#ff3f6c;
+
+}
+
+/*==========================
+      SMOOTH TEXT
+==========================*/
+
+.product-name,
+.product-category,
+.offer-price,
+.original-price,
+.save-price{
+
+    transition:all .30s ease;
+
+}
+/*==================================================
+        MYNTRA STYLE CSS - PART 3
+    BUTTONS + WISHLIST + QUANTITY + HOVER
+==================================================*/
+
+/*==========================
+      WISHLIST BUTTON
+==========================*/
+
+.wishlist-btn{
+
+    position:absolute;
+
+    top:16px;
+
+    right:16px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.95);
+
+    color:#535766;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:20;
+
+    opacity:0;
+
+    transform:translateY(-8px);
+
+    transition:.35s;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.product-card:hover .wishlist-btn{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+.wishlist-btn:hover{
+
+    background:#ff3f6c;
+
+    color:#fff;
+
+    transform:scale(1.1);
+
+}
+
+/*==========================
+      BUTTON AREA
+==========================*/
+
+.buy{
+
+    width:100%;
+
+    height:48px;
+
+    margin-top:auto;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#ff3f6c;
+
+    color:#fff;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    letter-spacing:.4px;
+
+}
+
+.buy:hover{
+
+    background:#e91e63;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 22px rgba(255,63,108,.30);
+
+}
+
+.buy:active{
+
+    transform:scale(.98);
+
+}
+
+/*==========================
+    QUANTITY CONTROLS
+==========================*/
+
+.quantity-controls{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:auto;
+
+    height:48px;
+
+    border:1px solid #eaeaec;
+
+    border-radius:8px;
+
+    overflow:hidden;
+
+    background:#fff;
+
+}
+
+.quantity-controls button{
+
+    width:48px;
+
+    height:48px;
+
+    border:none;
+
+    background:#fff;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#282c3f;
+
+    transition:.3s;
+
+}
+
+.quantity-controls button:hover{
+
+    background:#ffedf2;
+
+    color:#ff3f6c;
+
+}
+
+.quantity-controls span{
+
+    flex:1;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    color:#282c3f;
+
+}
+
+/*==========================
+      HOVER ACTION BAR
+==========================*/
+
+.product-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:4px;
+
+    background:#ff3f6c;
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.35s;
+
+}
+
+.product-card:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+/*==========================
+      IMAGE SCALE
+==========================*/
+
+.product-card:hover .product-image{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+      CARD ANIMATION
+==========================*/
+
+.product-card{
+
+    animation:fadeCard .5s ease;
+
+}
+
+@keyframes fadeCard{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==========================
+      QUICK VIEW
+(Optional)
+==========================*/
+
+.quick-view{
+
+    position:absolute;
+
+    bottom:90px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:10px 18px;
+
+    border-radius:25px;
+
+    background:#fff;
+
+    color:#282c3f;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+
+    opacity:0;
+
+    transition:.35s;
+
+    pointer-events:none;
+
+}
+
+.product-card:hover .quick-view{
+
+    opacity:1;
+
+    bottom:105px;
+
+}
+
+/*==========================
+      BUTTON RIPPLE
+==========================*/
+
+.buy{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.buy::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:0;
+
+    height:0;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.25);
+
+    transform:translate(-50%,-50%);
+
+    transition:.6s;
+
+}
+
+.buy:hover::before{
+
+    width:320px;
+
+    height:320px;
+
+}
+
+/*==========================
+      DISCOUNT GLOW
+==========================*/
+
+.discount-badge{
+
+    transition:.35s;
+
+}
+
+.product-card:hover .discount-badge{
+
+    transform:scale(1.05);
+
+    box-shadow:0 8px 18px rgba(255,63,108,.25);
+
+}
+
+/*==========================
+      IMAGE SHINE
+==========================*/
+
+.image-container{
+
+    position:relative;
+
+}
+
+.image-container::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:70%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    transform:skewX(-25deg);
+
+}
+
+.product-card:hover .image-container::before{
+
+    animation:shineMove .9s;
+
+}
+
+@keyframes shineMove{
+
+    100%{
+
+        left:160%;
+
+    }
+
+}
+
+/*==========================
+      IMAGE CURSOR
+==========================*/
+
+.product-image{
+
+    cursor:pointer;
+
+}
+/*==================================================
+        MYNTRA STYLE CSS - PART 4
+      RESPONSIVE + ANIMATIONS + POLISH
+===================================================*/
+
+/*==========================
+        SCROLLBAR
+==========================*/
+
+::-webkit-scrollbar{
+    width:10px;
+    height:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f2f4;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#c2c2c2;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#ff3f6c;
+}
+
+/*==========================
+      SELECTION
+==========================*/
+
+::selection{
+    background:#ff3f6c;
+    color:#fff;
+}
+
+/*==========================
+      CARD HOVER
+==========================*/
+
+.product-card{
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+}
+
+.product-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.12);
+
+}
+
+/*==========================
+      IMAGE HOVER
+==========================*/
+
+.product-image{
+
+    transition:
+        transform .45s ease,
+        filter .35s ease;
+
+}
+
+.product-card:hover .product-image{
+
+    transform:scale(1.08);
+
+}
+
+/*==========================
+      DETAILS HOVER
+==========================*/
+
+.product-card:hover .product-name{
+
+    color:#ff3f6c;
+
+}
+
+.product-card:hover .offer-price{
+
+    color:#ff3f6c;
+
+}
+
+/*==========================
+      BUTTON EFFECT
+==========================*/
+
+.buy{
+
+    transition:.35s;
+
+}
+
+.buy:hover{
+
+    letter-spacing:.5px;
+
+}
+
+/*==========================
+      QUANTITY BUTTON
+==========================*/
+
+.quantity-controls button{
+
+    transition:.3s;
+
+}
+
+.quantity-controls button:active{
+
+    transform:scale(.9);
+
+}
+
+/*==========================
+      FLOAT ANIMATION
+==========================*/
+
+@keyframes floatCard{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-3px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+.product-card:hover{
+
+    animation:floatCard 2.2s infinite ease-in-out;
+
+}
+
+/*==========================
+      IMAGE LOADER
+==========================*/
+
+.image-container{
+
+    background:#fafafa;
+
+}
+
+/*==========================
+      FADE
+==========================*/
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+
+.product-list-wide{
+
+    animation:fadeIn .7s;
+
+}
+
+/*==========================
+      RESPONSIVE
+==========================*/
+
+@media(max-width:1200px){
+
+.product-list-wide{
+
+grid-template-columns:
+repeat(auto-fill,minmax(260px,1fr));
+
+gap:25px;
+
+padding:25px;
+
+}
+
+.image-container{
+
+height:320px;
+
+}
+
+}
+
+/*==========================*/
+
+@media(max-width:992px){
+
+.eshop-header{
+
+padding:15px 25px;
+
+}
+
+.eshop-title{
+
+font-size:28px;
+
+}
+
+.product-list-wide{
+
+grid-template-columns:
+repeat(auto-fill,minmax(240px,1fr));
+
+gap:22px;
+
+}
+
+.image-container{
+
+height:280px;
+
+}
+
+}
+
+/*==========================*/
+
+@media(max-width:768px){
+
+.eshop-header{
+
+flex-direction:column;
+
+gap:18px;
+
+text-align:center;
+
+}
+
+.eshop-search{
+
+justify-content:center;
+
+width:100%;
+
+}
+
+.select{
+
+width:100%;
+
+max-width:320px;
+
+}
+
+.checkout-btn{
+
+width:180px;
+
+}
+
+.product-list-wide{
+
+grid-template-columns:
+repeat(auto-fill,minmax(210px,1fr));
+
+gap:18px;
+
+padding:18px;
+
+}
+
+.image-container{
+
+height:250px;
+
+}
+
+.product-name{
+
+font-size:15px;
+
+}
+
+.offer-price{
+
+font-size:22px;
+
+}
+
+}
+
+/*==========================*/
+
+@media(max-width:576px){
+
+.product-list-wide{
+
+grid-template-columns:1fr;
+
+padding:15px;
+
+}
+
+.product-card{
+
+border-radius:10px;
+
+}
+
+.image-container{
+
+height:260px;
+
+}
+
+.product-details{
+
+padding:14px;
+
+}
+
+.product-name{
+
+font-size:15px;
+
+min-height:auto;
+
+}
+
+.offer-price{
+
+font-size:21px;
+
+}
+
+.original-price{
+
+font-size:14px;
+
+}
+
+.buy{
+
+height:46px;
+
+font-size:15px;
+
+}
+
+.quantity-controls{
+
+height:46px;
+
+}
+
+.quantity-controls button{
+
+width:46px;
+
+height:46px;
+
+font-size:22px;
+
+}
+
+}
+
+/*==========================
+      EXTRA SMALL
+==========================*/
+
+@media(max-width:360px){
+
+.eshop-title{
+
+font-size:22px;
+
+}
+
+.username{
+
+display:none;
+
+}
+
+.logout-btn{
+
+padding:8px 12px;
+
+font-size:13px;
+
+}
+
+.image-container{
+
+height:220px;
+
+}
+
+}
+
+/*==========================
+      FOCUS
+==========================*/
+
+button:focus,
+select:focus{
+
+outline:none;
+
+}
+
+/*==========================
+      SMOOTH
+==========================*/
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+/*==========================
+      PREVENT IMAGE DRAG
+==========================*/
+
+.product-image{
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+/*==========================
+      FINAL POLISH
+==========================*/
+
+.product-card{
+
+overflow:hidden;
+
+}
+
+.product-card *{
+
+transition:
+color .25s,
+background .25s,
+border .25s;
+
+}

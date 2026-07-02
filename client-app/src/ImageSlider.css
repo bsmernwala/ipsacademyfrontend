@@ -1,66 +1,261 @@
+/* ==========================
+   IMAGE SLIDER
+========================== */
+
 .slider {
-  width: 90%;
-  max-width: 1200px;
-  margin: 30px auto;
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,.2);
+    width: 95%;
+    max-width: 1400px;
+    height: 280px;                  /* Reduced Height */
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.slider-image {
-  width: 100%;
-  height: 250px;
-  object-fit: fill;
-  display: block;
+/* ==========================
+   SLIDER TRACK
+========================== */
+
+.slider-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
 }
 
-.prev,
-.next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,.5);
-  color: white;
-  border: none;
-  font-size: 30px;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 10;
+/* ==========================
+   EACH SLIDE
+========================== */
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    background: #f8f9fa;
 }
 
-.prev:hover,
-.next:hover {
-  background: #000;
+/* ==========================
+   IMAGE
+========================== */
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;          /* Full Image Visible */
+    object-position: center;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.slide:hover img {
+    transform: scale(1.02);
+}
+
+/* ==========================
+   OPTIONAL OVERLAY
+========================== */
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.05),
+        rgba(0, 0, 0, 0.20)
+    );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-left: 60px;
+
+    color: #fff;
+}
+
+.overlay h2 {
+    margin: 0;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+.overlay p {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+/* ==========================
+   NAVIGATION BUTTONS
+========================== */
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(6px);
+    color: #333;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all .3s ease;
+    z-index: 10;
+}
+
+.nav:hover {
+    background: #007bff;
+    color: #fff;
+    transform: translateY(-50%) scale(1.08);
 }
 
 .prev {
-  left: 15px;
+    left: 15px;
 }
 
 .next {
-  right: 15px;
+    right: 15px;
 }
 
+/* ==========================
+   DOTS
+========================== */
+
 .dots {
-  position: absolute;
-  bottom: 15px;
-  width: 100%;
-  text-align: center;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-  margin: 5px;
-  display: inline-block;
-  background: #ddd;
-  border-radius: 50%;
-  cursor: pointer;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.dot:hover {
+    transform: scale(1.25);
 }
 
 .dot.active {
-  background: #007bff;
+    width: 34px;
+    border-radius: 20px;
+    background: #007bff;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (max-width: 992px) {
+
+    .slider {
+        height: 220px;
+    }
+
+    .overlay {
+        padding-left: 35px;
+    }
+
+    .overlay h2 {
+        font-size: 30px;
+    }
+
+    .overlay p {
+        font-size: 18px;
+    }
+
+    .nav {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width: 768px) {
+
+    .slider {
+        height: 180px;
+    }
+
+    .overlay {
+        padding-left: 20px;
+    }
+
+    .overlay h2 {
+        font-size: 22px;
+    }
+
+    .overlay p {
+        font-size: 14px;
+    }
+
+    .nav {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .dot.active {
+        width: 24px;
+    }
+}
+
+/* ==========================
+   SMALL MOBILE
+========================== */
+
+@media (max-width: 480px) {
+
+    .slider {
+        height: 140px;
+        border-radius: 10px;
+    }
+
+    .overlay {
+        padding-left: 15px;
+    }
+
+    .overlay h2 {
+        font-size: 16px;
+    }
+
+    .overlay p {
+        font-size: 12px;
+    }
+
+    .nav {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .dot.active {
+        width: 20px;
+    }
 }

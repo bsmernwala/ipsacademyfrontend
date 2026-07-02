@@ -258,73 +258,178 @@ const handleLogout = () => {
 
 return (
   <div className="product-card" key={item.pid}>
-    {/* Discount Badge */}
-    {discount > 0 && (
-      <span className="discount-badge">
-        {discount}% OFF
-      </span>
-    )}
 
-    {/* Product Image */}
+    {/* Wishlist */}
+    <button className="wishlist-btn">
+        ❤
+    </button>
+
+    {/* Discount */}
+    {discount > 0 &&
+        <span className="discount-badge">
+            {discount}% OFF
+        </span>
+    }
+
+    {/* Image */}
     <div className="image-container">
-      <img
-        className="product-image"
-        src={imageUrl}
-        alt={item.pname}
-        loading="lazy"
-      />
-    </div>
 
-    {/* Product Details */}
-    <div className="product-details">
-      <h3 className="product-name">{item.pname}</h3>
+        <img
+            src={imageUrl}
+            alt={item.pname}
+            className="product-image"
+        />
 
-      <p className="product-category">{cname}</p>
+        {/* Hover Buttons */}
+        <div className="image-overlay">
 
-      <div className="price-section">
-        <span className="offer-price">₹{item.oprice}</span>
+            <button className="quick-btn">
+                👁 Quick View
+            </button>
 
-        {item.pprice > item.oprice && (
-          <>
-            <span className="original-price">₹{item.pprice}</span>
-            <span className="save-price">
-              Save ₹{item.pprice - item.oprice}
-            </span>
-          </>
-        )}
-      </div>
-
-      <div className="rating">
-        ⭐⭐⭐⭐⭐
-        <span>(4.8)</span>
-      </div>
-
-      <p className="delivery">
-        🚚 Free Delivery
-      </p>
-
-      {qty > 0 ? (
-        <div className="quantity-controls">
-          <button onClick={() => decreaseQty(item.pid)}>
-            −
-          </button>
-
-          <span>{qty}</span>
-
-          <button onClick={() => increaseQty(item.pid)}>
-            +
-          </button>
         </div>
-      ) : (
-        <button
-          className="buy"
-          onClick={() => handleBuyButton(item.pid)}
-        >
-          🛒 Add to Cart
-        </button>
-      )}
+
     </div>
-  </div>
+
+    <div className="product-details">
+
+        <h3 className="product-name">
+            {item.pname}
+        </h3>
+
+        <div className="rating-box">
+            ★ 4.8
+        </div>
+
+        <p className="product-category">
+            {cname}
+        </p>
+
+        <div className="price-section">
+
+            <span className="offer-price">
+                ₹{item.oprice}
+            </span>
+
+            <span className="original-price">
+                ₹{item.pprice}
+            </span>
+
+            <span className="save-price">
+                {discount}% Off
+            </span>
+
+        </div>
+
+        <p className="delivery">
+            Free Delivery Tomorrow
+        </p>
+
+        {
+            qty > 0 ?
+
+                <div className="quantity-controls">
+
+                    <button
+                        onClick={() => decreaseQty(item.pid)}
+                    >
+                        −
+                    </button>
+
+                    <span>{qty}</span>
+
+                    <button
+                        onClick={() => increaseQty(item.pid)}
+                    >
+                        +
+                    </button>
+
+                </div>
+
+                :
+
+                <button
+                    className="buy"
+                    onClick={() => handleBuyButton(item.pid)}
+                >
+
+                    🛒 Add to Cart
+
+                </button>
+
+        }
+
+    </div>
+
+</div>
+  // <div className="product-card" key={item.pid}>
+  //   {/* Discount Badge */}
+  //   {discount > 0 && (
+  //     <span className="discount-badge">
+  //       {discount}% OFF
+  //     </span>
+  //   )}
+
+  //   {/* Product Image */}
+  //   <div className="image-container">
+  //     <img
+  //       className="product-image"
+  //       src={imageUrl}
+  //       alt={item.pname}
+  //       loading="lazy"
+  //     />
+  //   </div>
+
+  //   {/* Product Details */}
+  //   <div className="product-details">
+  //     <h3 className="product-name">{item.pname}</h3>
+
+  //     <p className="product-category">{cname}</p>
+
+  //     <div className="price-section">
+  //       <span className="offer-price">₹{item.oprice}</span>
+
+  //       {item.pprice > item.oprice && (
+  //         <>
+  //           <span className="original-price">₹{item.pprice}</span>
+  //           <span className="save-price">
+  //             Save ₹{item.pprice - item.oprice}
+  //           </span>
+  //         </>
+  //       )}
+  //     </div>
+
+  //     <div className="rating">
+  //       ⭐⭐⭐⭐⭐
+  //       <span>(4.8)</span>
+  //     </div>
+
+  //     <p className="delivery">
+  //       🚚 Free Delivery
+  //     </p>
+
+  //     {qty > 0 ? (
+  //       <div className="quantity-controls">
+  //         <button onClick={() => decreaseQty(item.pid)}>
+  //           −
+  //         </button>
+
+  //         <span>{qty}</span>
+
+  //         <button onClick={() => increaseQty(item.pid)}>
+  //           +
+  //         </button>
+  //       </div>
+  //     ) : (
+  //       <button
+  //         className="buy"
+  //         onClick={() => handleBuyButton(item.pid)}
+  //       >
+  //         🛒 Add to Cart
+  //       </button>
+  //     )}
+  //   </div>
+  // </div>
 );
         })}
       </div>
